@@ -19,7 +19,6 @@ namespace JSONSchemaGenerator
 
             Type[] types = { typeof(WorldStartupParameters), typeof(WorldStartInfo), typeof(Config), typeof(NeosConfig) };
 
-            // This will get the current PROJECT directory
             string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
 
             string outputPath = projectDirectory + "/output/";
@@ -27,7 +26,7 @@ namespace JSONSchemaGenerator
 
             foreach (Type type in types)
             {
-                File.WriteAllText($"{outputPath}{type.Name}.json", generator.Generate(type).ToJson());
+                File.WriteAllText($"{outputPath}{type.Name}.schema.json", generator.Generate(type).ToJson());
             }
         }
     }
