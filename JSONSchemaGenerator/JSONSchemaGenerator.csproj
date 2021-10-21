@@ -33,14 +33,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FrooxEngine">
-      <HintPath>..\..\NeosFramework\FrooxEngine\bin\Debug\FrooxEngine.dll</HintPath>
+    <Reference Include="FrooxEngine, Version=2021.10.19.588, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\NeosFramework\FrooxEngine\bin\Release\FrooxEngine.dll</HintPath>
     </Reference>
     <Reference Include="Namotion.Reflection, Version=2.0.3.0, Culture=neutral, PublicKeyToken=c2f9c3bdfae56102, processorArchitecture=MSIL">
       <HintPath>..\packages\Namotion.Reflection.2.0.3\lib\net45\Namotion.Reflection.dll</HintPath>
     </Reference>
-    <Reference Include="Neos">
-      <HintPath>..\..\NeosFramework\NeosHeadless\bin\Debug\Neos.exe</HintPath>
+    <Reference Include="Neos, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\NeosFramework\NeosHeadless\bin\Release\Neos.exe</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
