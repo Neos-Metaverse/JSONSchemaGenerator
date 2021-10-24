@@ -10,7 +10,9 @@ namespace JSONSchemaGenerator
     {
         static void Main(string[] args)
         {
-            var settings = new JsonSchemaGeneratorSettings();
+            JsonSchemaGeneratorSettings settings = new JsonSchemaGeneratorSettings();
+            settings.DefaultPropertyNameHandling = PropertyNameHandling.CamelCase;
+
             var generator = new JsonSchemaGenerator(settings);
 
             Type[] types = {  typeof(Config), typeof(NeosConfig) };
