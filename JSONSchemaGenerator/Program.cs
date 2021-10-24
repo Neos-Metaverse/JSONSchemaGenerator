@@ -27,6 +27,9 @@ namespace JSONSchemaGenerator
                 }
             };
 
+            // VSCode hates me?
+            systemJsonSettings.FlattenInheritanceHierarchy = true;
+
             var systemGenerator = new JsonSchemaGenerator(systemJsonSettings);
 
             foreach (Type type in systemJsonTypes)
@@ -35,6 +38,9 @@ namespace JSONSchemaGenerator
             }
 
             var newtonJsonSettings = new JsonSchemaGeneratorSettings();
+
+            // VSCode hates me?
+            newtonJsonSettings.FlattenInheritanceHierarchy = true;
             var newtonGenerator = new JsonSchemaGenerator(newtonJsonSettings);
 
             Type[] newtonJsonTypes = { typeof(NeosConfig) };
