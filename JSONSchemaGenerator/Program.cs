@@ -17,7 +17,7 @@ namespace JSONSchemaGenerator
             var settings = new JsonSchemaGeneratorSettings();
             var generator = new JsonSchemaGenerator(settings);
 
-            Type[] types = { typeof(WorldStartupParameters), typeof(WorldStartInfo), typeof(Config), typeof(NeosConfig) };
+            Type[] types = {  typeof(Config), typeof(NeosConfig) };
 
             string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
 
