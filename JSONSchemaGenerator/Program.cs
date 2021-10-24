@@ -3,6 +3,7 @@ using NeosHeadless;
 using NJsonSchema.Generation;
 using System;
 using System.IO;
+using System.Text.Json;
 
 namespace JSONSchemaGenerator
 {
@@ -10,8 +11,13 @@ namespace JSONSchemaGenerator
     {
         static void Main(string[] args)
         {
-            JsonSchemaGeneratorSettings settings = new JsonSchemaGeneratorSettings();
-            settings.DefaultPropertyNameHandling = PropertyNameHandling.CamelCase;
+            var settings = new JsonSchemaGeneratorSettings
+            {
+                SerializerOptions = new JsonSerializerOptions
+                {
+                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+                }
+            };
 
             var generator = new JsonSchemaGenerator(settings);
 
