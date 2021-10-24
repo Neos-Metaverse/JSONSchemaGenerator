@@ -11,7 +11,15 @@ namespace JSONSchemaGenerator
     {
         static void Main(string[] args)
         {
-            var settings = new JsonSchemaGeneratorSettings
+            string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+
+            // Ok we so we have a mixed use of Newtonsoft and System.Text.Json so we need to use both for now. I don't like this but hey, I'm working on it ;)
+
+            string outputPath = projectDirectory + "/output/";
+            Directory.CreateDirectory(outputPath);
+
+            Type[] systemJsonTypes = { typeof(Config) };
+            var systemJsonSettings = new JsonSchemaGeneratorSettings
             {
                 SerializerOptions = new JsonSerializerOptions
                 {
@@ -19,18 +27,21 @@ namespace JSONSchemaGenerator
                 }
             };
 
-            var generator = new JsonSchemaGenerator(settings);
+            var systemGenerator = new JsonSchemaGenerator(systemJsonSettings);
 
-            Type[] types = {  typeof(Config), typeof(NeosConfig) };
-
-            string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
-
-            string outputPath = projectDirectory + "/output/";
-            Directory.CreateDirectory(outputPath);
-
-            foreach (Type type in types)
+            foreach (Type type in systemJsonTypes)
             {
-                File.WriteAllText($"{outputPath}{type.Name}.schema.json", generator.Generate(type).ToJson());
+                File.WriteAllText($"{outputPath}{type.Name}.schema.json", systemGenerator.Generate(type).ToJson());
+            }
+
+            var newtonJsonSettings = new JsonSchemaGeneratorSettings();
+            var newtonGenerator = new JsonSchemaGenerator(newtonJsonSettings);
+
+            Type[] newtonJsonTypes = { typeof(NeosConfig) };
+
+            foreach (Type type in newtonJsonTypes)
+            {
+                File.WriteAllText($"{outputPath}{type.Name}.schema.json", newtonGenerator.Generate(type).ToJson());
             }
         }
     }
