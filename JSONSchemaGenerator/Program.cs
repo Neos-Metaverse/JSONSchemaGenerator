@@ -1,5 +1,5 @@
-﻿using FrooxEngine;
-using NeosHeadless;
+﻿using NeosHeadless;
+using CloudX.Shared;
 using NJsonSchema.Generation;
 using System;
 using System.IO;
@@ -18,7 +18,7 @@ namespace JSONSchemaGenerator
             string outputPath = projectDirectory + "/output/";
             Directory.CreateDirectory(outputPath);
 
-            Type[] systemJsonTypes = { typeof(Config) };
+            Type[] systemJsonTypes = { typeof(NeosConfig) };
             var systemJsonSettings = new JsonSchemaGeneratorSettings
             {
                 SerializerOptions = new JsonSerializerOptions
@@ -43,7 +43,7 @@ namespace JSONSchemaGenerator
             newtonJsonSettings.FlattenInheritanceHierarchy = true;
             var newtonGenerator = new JsonSchemaGenerator(newtonJsonSettings);
 
-            Type[] newtonJsonTypes = { typeof(NeosConfig) };
+            Type[] newtonJsonTypes = { typeof(NeosHeadlessConfig) };
 
             foreach (Type type in newtonJsonTypes)
             {
