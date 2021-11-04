@@ -37,7 +37,7 @@
   <ItemGroup>
     <Reference Include="CloudX.Shared, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\NeosFramework\NeosHeadless\bin\Release\CloudX.Shared.dll</HintPath>
+      <HintPath>..\..\NeosFramework\CloudX.Shared\bin\Release\CloudX.Shared.dll</HintPath>
     </Reference>
     <Reference Include="FrooxEngine, Version=2021.10.19.588, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
